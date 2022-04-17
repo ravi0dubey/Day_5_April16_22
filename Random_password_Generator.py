@@ -6,26 +6,28 @@ symbols =["!","#","$","%","&","(",")","*","+"]
 no_char= int(input("How many Alphabets you want in your password: "))
 no_num= int(input("How many Numbers you want in your password: "))
 no_symb= int(input("How many Symbols you want in your password: "))
-total_alpha = [alphabets,numbers,symbols]
-print(total_alpha)
+
+total_alpha = []
 password = ' '
 
 for i in range(1,no_char + 1):
-  char_position =  random.randint(0,25)
-  print(char_position)
-  print(total_alpha[0][char_position])
-  password = password + total_alpha[0][char_position]
+  random_char = random.choice(alphabets) #it will choose random character from alphabet list randomly
+  total_alpha += random_char
+  
 
 for i in range(1,no_num + 1):
-  num_position =  random.randint(0,9)
-  print(num_position)
-  print(total_alpha[1][num_position])
-  password = password + total_alpha[1][num_position]
+  random_numb = random.choice(numbers) #it will choose random character from alphabet list randomly
+  total_alpha += random_numb
 
 for i in range(1,no_symb + 1):
-  symb_position =  random.randint(0,9)
-  print(symb_position)
-  print(total_alpha[2][symb_position])
-  password = password + total_alpha[2][symb_position]
+  random_symb = random.choice(symbols) #it will choose random character from alphabet list randomly
+  total_alpha += random_symb
+  
+print(total_alpha)
+
+random.shuffle(total_alpha) # it shuffle the existing List
+
+for random_pass in total_alpha:
+    password += random_pass
 
 print(password)
